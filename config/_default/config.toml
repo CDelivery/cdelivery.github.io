@@ -1,4 +1,35 @@
-baseURL = "https://CDelivery.github.io/"
-languageCode = "en-us"
-title = "こーどでりばりーのブログ"
+baseURL = "https://blog.code-del.com/"
+languageCode = "ja"
+defaultContentLanguage = "ja"
+title = "Code Delivery"
+hasCJKLanguage = true
 theme = "ananke"
+
+
+[menu]
+    [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+
+    [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+
+[params]
+recent_posts_number = 10
+custom_css = ["custom.css","special.css"]
+post_content_classes = "Helvetica"
+text_color = "near-black"
+show_reading_time = true
+date_format = "2006年1月2日"
+featured_image = "/images/code-delivery.jpg"
+omit_header_text = "true"
+author = ""
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+author = "authors"
+series = "series"
