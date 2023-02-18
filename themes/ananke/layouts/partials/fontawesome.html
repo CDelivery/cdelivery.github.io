@@ -1,9 +1,0 @@
-<!-- <span class="inline-svg" >
-    {{- $fname:=print "svg/" . ".svg" -}}
-    {{- $path:="<path" -}}
-    {{- $fill:="<path fill=\"currentColor\"" -}}
-    {{ replace (readFile $fname) $path $fill | safeHTML }}
-</span> -->
-<span class="inline-svg" >
-    {{ readFile ( print "fontawesome/" . ".svg" ) | safeHTML  }}
-</span>
