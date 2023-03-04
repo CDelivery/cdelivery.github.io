@@ -3,8 +3,8 @@
 // ==============================
 
 // ========== Global ========== //
-// Font and Line Height
-$global-font-family: system-ui, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei UI, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif !default;
+
+$global-font-family: 'Noto Sans JP', sans-serif !default;
 $global-font-size: 16px;
 $global-font-weight: 400;
 $global-line-height: 1.5rem;
@@ -68,7 +68,7 @@ $header-background-color-dark: #252627 !default;
 $header-background-color-black: #000000 !default;
 
 // Font style of the header title
-$header-title-font-family: "Lalezar" !default;
+$header-title-font-family: 'Lalezar', cursive !default;
 $header-title-font-size: 1.7em !default;
 
 // Color of the hover header item

@@ -43,7 +43,8 @@ license = '<a rel="license external nofollow noopener noreffer" href="https://cr
     # you can add extra information before the name (HTML format is supported), such as icons
     # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
     # pre = "<i class='far fa-edit fa-fw'></i>"
-    post = "<i class='fas fa-box-open'></i>"
+    # post = "<i class='fas fa-box-open'></i>"
+    post = "<img src='/color_transparent.png' width='40px' style='display:inline-block;vertical-align:middle;'>"
     # whether to use typeit animation for title name
     # 是否为标题显示打字机动画
     typeit = true
@@ -484,7 +485,7 @@ license = '<a rel="license external nofollow noopener noreffer" href="https://cr
     [verification]
     baidu = ""
     bing = ""
-    google = "57vkordGi-HuOLh-xT6twbdgWEeNjjBLkidWKnnHAp8"
+    google = "Dxh4F1vsIQfqTDJhPrODWJm02Akm-r0Cb6acMgw6sNE"
     pinterest = ""
     so = ""
     sogou = ""
