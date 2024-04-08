@@ -29,7 +29,23 @@
                     {{ delimit . "&nbsp;|&nbsp;" | safeHTML }}
                 </div>
             {{- end -}}
+
+
             <div class="footer-line">
+                <!-- 免責事項・プライバシーポリシー -->
+                {{- range .Site.Menus.footer -}}
+                    {{- $url := .URL | relLangURL -}}
+                    {{- with .Page -}}
+                        {{- $url = .RelPermalink -}}
+                    {{- end -}}
+                    <a class="footer-item{{ if $.IsMenuCurrent `footer` . | or ($.HasMenuCurrent `footer` .) | or (eq $.RelPermalink $url) }} active{{ end }}" href="{{ $url }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreferrer" target="_blank"{{ end }}>
+                        {{- .Pre | safeHTML }} {{ .Name }} {{ .Post | safeHTML -}}
+                    </a>
+                    {{ "|" }}
+                {{- end -}}
+            
+                <!-- 免責事項・プライバシーポリシーここまで-->
+
                 {{- /* Copyright year */ -}}
                 {{- if ne .Site.Params.footer.copyright false -}}
                     <i class="far fa-copyright fa-fw"></i>
