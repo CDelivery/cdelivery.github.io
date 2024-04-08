@@ -14,6 +14,14 @@ theme = "DoIt"
 
 [menu]
   [[menu.main]]
+    identifier = "about"
+    pre = ""
+    post = ""
+    name = "About"
+    url = "/about/"
+    title = ""
+    weight = 1
+  [[menu.main]]
     identifier = "posts"
     # you can add extra information before the name (HTML format is supported), such as icons
     pre = ""
@@ -23,7 +31,7 @@ theme = "DoIt"
     url = "/posts/"
     # title will be shown when you hover on this menu link
     title = ""
-    weight = 1
+    weight = 2
   [[menu.main]]
     identifier = "tags"
     pre = ""
@@ -31,7 +39,7 @@ theme = "DoIt"
     name = "Tags"
     url = "/tags/"
     title = ""
-    weight = 2
+    weight = 3
   [[menu.main]]
     identifier = "categories"
     pre = ""
@@ -39,7 +47,7 @@ theme = "DoIt"
     name = "Categories"
     url = "/categories/"
     title = ""
-    weight = 3
+    weight = 4
   [[menu.main]]
     identifier = "authors"
     pre = ""
@@ -47,7 +55,18 @@ theme = "DoIt"
     name = "Member"
     url = "/authors/"
     title = ""
-    weight = 4
+    weight = 5
+
+  [[menu.footer]]
+    identifier = "disclaimer"
+    name = "免責事項"
+    url = "/免責事項/"
+    weight = 1
+  [[menu.footer]]
+    identifier = "privacy-policy"
+    name = "プライバシーポリシー"
+    url = "/プライバシーポリシー/"
+    wieght = 2
 # Markup related configuration in Hugo
 [markup]
   # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
