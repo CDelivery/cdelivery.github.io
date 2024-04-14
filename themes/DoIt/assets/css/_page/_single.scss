@@ -87,13 +87,21 @@
 
     h2 {
       font-weight: bold;
-      margin: 4rem 0 1.2rem;
+      margin: 2rem 0;
+      padding: 1rem 0 1rem 0.5rem;
+      background-color: #edf9ff; /*背景色*/
+      border-left: solid 3px $single-link-color; /*左線*/
+
 
       [theme=dark] & {
         font-weight: bolder;
+        background-color: #3a4246;
+
       }
       [theme=black] & {
         font-weight: bolder;
+        background-color: #3a4246;
+
       }
     }
 
@@ -102,7 +110,7 @@
     h5,
     h6 {
       font-weight: bold;
-      margin: 4rem 0 1.2rem;
+      margin: 2rem 0;
 
       [theme=dark] & {
         font-weight: bolder;
@@ -112,7 +120,6 @@
       }
     }
 
-    > h2,
     > h3,
     > h4,
     > h5,
@@ -129,10 +136,6 @@
           color: $single-link-color-black;
         }
       }
-    }
-
-    > h2 > .header-mark::before {
-      content: "|";
     }
 
     p {
