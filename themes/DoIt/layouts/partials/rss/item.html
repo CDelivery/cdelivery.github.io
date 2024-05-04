@@ -54,7 +54,7 @@
         {{- "<![CDATA[" | safeHTML -}}
         {{- with $image -}}
             <div class="featured-image">
-                <img src="{{ . }}" referrerpolicy="no-referrer">
+                <img loading="lazy" src="{{ . }}" referrerpolicy="no-referrer">
             </div>
         {{- end -}}
         {{- $content := .Page.Description -}}
