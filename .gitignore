@@ -6,3 +6,5 @@ resources
 public
 content/*
 !content/.gitkeep
+static/imgs/*
+!static/imgs/.gitkeep
