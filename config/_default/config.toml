@@ -4,6 +4,7 @@ defaultContentLanguage = "jp"
 # language code
 languageCode = "jp"
 title = "Code Delivery"
+hasCJKLanguage = true
 
 # Change the default theme to be use when building the site with Hugo
 theme = "DoIt"
