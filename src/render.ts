@@ -161,7 +161,7 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
             console.error(`[Error] failed to save image ${link}`);
             process.exit(1);
         }
-        frontMatter.featuredimage = '/' + filepath.replace('static/', '');
+        frontMatter.image = '/' + filepath.replace('static/', '');
         // update nearest_expiry_time
         if (expiry_time) {
             if (nearest_expiry_time) {
@@ -263,13 +263,16 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
     }
 
     // set default author
-    if (frontMatter.authors == null) {
+    if (frontMatter.author == null) {
         const response = await notion.users.retrieve({
             user_id: page.last_edited_by.id,
         });
         if (response.name) {
-            frontMatter.authors = [response.name];
+            frontMatter.author = response.name;
         }
+    }
+    if (Array.isArray(frontMatter.author)) {
+        frontMatter.author = frontMatter.author.join(", ");
     }
 
     // save metadata
