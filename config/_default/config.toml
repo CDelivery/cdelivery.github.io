@@ -79,7 +79,7 @@ weight = 3
 
 #################### default parameters ################################
 [params]
-logo = "color_transparent.png"
+logo = "color_transparent_extrasmall.png"
 home = "Home"
 # Meta data
 description = "This is meta description"
@@ -101,6 +101,13 @@ preloader = "" # use .png , .svg or .gif format
 # search
 [params.search]
 enable = true
+
+# Table of Contents
+[markup]
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
 
 ############################ news letter ########################
 [params.newsletter]
