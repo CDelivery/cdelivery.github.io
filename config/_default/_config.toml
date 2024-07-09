@@ -1,0 +1,82 @@
+baseURL = "https://blog.code-del.com"
+# [en, zh-cn, fr, ...] determines default content language
+defaultContentLanguage = "jp"
+# language code
+languageCode = "jp"
+title = "Code Delivery"
+hasCJKLanguage = true
+
+# Change the default theme to be use when building the site with Hugo
+theme = "liva-hugo"
+
+[params]
+  # DoIt theme version
+  version = "0.2.X"
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    pre = ""
+    post = ""
+    name = "About"
+    url = "/about/"
+    title = ""
+    weight = 1
+  [[menu.main]]
+    identifier = "posts"
+    # you can add extra information before the name (HTML format is supported), such as icons
+    pre = ""
+    # you can add extra information after the name (HTML format is supported), such as icons
+    post = ""
+    name = "Posts"
+    url = "/posts/"
+    # title will be shown when you hover on this menu link
+    title = ""
+    weight = 2
+  [[menu.main]]
+    identifier = "tags"
+    pre = ""
+    post = ""
+    name = "Tags"
+    url = "/tags/"
+    title = ""
+    weight = 3
+  [[menu.main]]
+    identifier = "categories"
+    pre = ""
+    post = ""
+    name = "Categories"
+    url = "/categories/"
+    title = ""
+    weight = 4
+  [[menu.main]]
+    identifier = "authors"
+    pre = ""
+    post = ""
+    name = "Member"
+    url = "/authors/"
+    title = ""
+    weight = 5
+
+  [[menu.footer]]
+    identifier = "disclaimer"
+    name = "免責事項"
+    url = "/免責事項/"
+    weight = 1
+  [[menu.footer]]
+    identifier = "privacy-policy"
+    name = "プライバシーポリシー"
+    url = "/プライバシーポリシー/"
+    wieght = 2
+# Markup related configuration in Hugo
+[markup]
+  # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
+  [markup.highlight]
+    # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
+    noClasses = false
+
+[taxonomies]
+author = "authors"
+category = "categories"
+tag = "tags"
+series = "series"

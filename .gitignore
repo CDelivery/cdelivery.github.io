@@ -5,4 +5,7 @@ resources
 .hugo_build.lock
 public
 content/*
+!content/search
 !content/.gitkeep
+static/imgs/*
+!static/imgs/.gitkeep

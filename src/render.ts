@@ -14,7 +14,7 @@ import { NotionToMarkdown } from "@pclouddev/notion-to-markdown";
 import YAML from "yaml";
 import { sh } from "./sh";
 import { DatabaseMount, loadConfig, PageMount } from "./config";
-import { getPageTitle, getCoverLink, getFileName } from "./helpers";
+import { getPageTitle, getCoverLink, getFileName, saveImage } from "./helpers";
 import katex from "katex";
 import { MdBlock } from "@pclouddev/notion-to-markdown/build/types";
 import path from "path";
@@ -75,6 +75,20 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
             console.warn('[Warn] invalid notion.toml config')
             break;
     }
+    n2m.setCustomTransformer('image', async (block) => {
+        const { image } = block as any;
+        const url = image.file?.url as string | undefined;
+        console.log('image url', url);
+        
+        if (!url) {
+            console.error(`[Error] image url is not found`);
+            return '';
+        }
+        const filepath = await saveImage(url, 'static/imgs');
+        console.log('filepath', filepath);
+        return `![](/${filepath?.replace('static/', '')})`;
+    });
+
     n2m.setCustomTransformer('video', async (block) => {
         const { video } = block as any;
         console.info(`video: ${JSON.stringify(video)}`);
@@ -141,7 +155,13 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
     const featuredImageLink = await getCoverLink(page.id, notion);
     if (featuredImageLink) {
         const { link, expiry_time } = featuredImageLink;
-        frontMatter.featuredimage = link;
+        const filepath = await saveImage(link, 'static/imgs');
+        console.log('filepath', filepath);
+        if (filepath === undefined) {
+            console.error(`[Error] failed to save image ${link}`);
+            process.exit(1);
+        }
+        frontMatter.image = '/' + filepath.replace('static/', '');
         // update nearest_expiry_time
         if (expiry_time) {
             if (nearest_expiry_time) {
@@ -243,13 +263,16 @@ export async function renderPage(page: PageObjectResponse, notion: Client) {
     }
 
     // set default author
-    if (frontMatter.authors == null) {
+    if (frontMatter.author == null) {
         const response = await notion.users.retrieve({
             user_id: page.last_edited_by.id,
         });
         if (response.name) {
-            frontMatter.authors = [response.name];
+            frontMatter.author = response.name;
         }
+    }
+    if (Array.isArray(frontMatter.author)) {
+        frontMatter.author = frontMatter.author.join(", ");
     }
 
     // save metadata
