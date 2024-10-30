@@ -42,19 +42,19 @@ URL = "plugins/search/mark.js"
 URL = "plugins/search/search.js"
 
 ############################## module ###############################
-[module]
-  [[module.imports]]
-    path = 'github.com/hugomods/icons'
-  [[module.imports]]
-    path = 'github.com/hugomods/icons/vendors/bootstrap'
-    [[module.imports.mounts]]
-      source = "assets/icons/bootstrap"
-      target = "layouts/paritals/plugin/hugo-icons"
-  [[module.imports]]
-    path = 'github.com/hugomods/icons/vendors/font-awesome'
-    [[module.imports.mounts]]
-      source = "icons"
-      target = "layouts/paritals/plugin/hugo-icons"
+# [module]
+#   [[module.imports]]
+#     path = 'github.com/hugomods/icons'
+#   [[module.imports]]
+#     path = 'github.com/hugomods/icons/vendors/bootstrap'
+#     [[module.imports.mounts]]
+#       source = "assets/icons/bootstrap"
+#       target = "layouts/paritals/plugin/hugo-icons"
+#   [[module.imports]]
+#     path = 'github.com/hugomods/icons/vendors/font-awesome'
+#     [[module.imports.mounts]]
+#       source = "icons"
+#       target = "layouts/paritals/plugin/hugo-icons"
 ############################## navigation ###############################
 [menu]
 
@@ -100,10 +100,10 @@ name = "免責事項"
 URL = "https://blog.code-del.com/免責事項/"
 weight = 4
 
-[[menu.external]]
-name = "ホームページ"
-URL = "https://code-del.com"
-weight = 1
+# [[menu.external]]
+# name = "ホームページ"
+# URL = "https://code-del.com"
+# weight = 1
 
 
 [[menu.external]]
@@ -111,10 +111,26 @@ name = "お問い合わせ"
 URL = "https://forms.gle/n2W32o3zRsjPgnMj6"
 weight = 2
 
+#################### article ################################
+# 関連記事
+[related]
+  threshold = 0.1
+  toLower = true
+  includeNewer = true
+  [[related.indices]]
+    name = "tags"
+    weight = 200
+  [[related.indices]]
+    name = "categories"
+    weight = 100
+  [[related.indices]]
+    name = "date"
+    pattern = "2006"
+    weight = 10
 
 #################### default parameters ################################
 [params]
-logo = "color_transparent_extrasmall.png"
+logo = "color_transparent_small.png"
 home = "Home"
 # Meta data
 description = "This is meta description"
@@ -153,7 +169,7 @@ content = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam non
 
 # cookies
 [params.cookies]
-enable = true
+enable = false
 expire_days = 2
 
 
