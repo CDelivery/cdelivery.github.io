@@ -1,6 +1,6 @@
 ######################## default configuration ####################
 baseURL = "https://blog.code-del.com"
-languageCode = "jp"
+languageCode = "ja"
 title = "Code Delivery"
 theme = "liva-hugo"
 summaryLength = "10"
@@ -132,6 +132,7 @@ weight = 2
 [params]
 logo = "color_transparent_small.png"
 home = "Home"
+favicon = "favicon.png"
 # Meta data
 description = "This is meta description"
 author = "aiueo"
