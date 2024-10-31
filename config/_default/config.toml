@@ -1,6 +1,6 @@
 ######################## default configuration ####################
 baseURL = "https://blog.code-del.com"
-languageCode = "jp"
+languageCode = "ja"
 title = "Code Delivery"
 theme = "liva-hugo"
 summaryLength = "10"
