@@ -92,12 +92,12 @@ weight = 2
 
 [[menu.footer]]
 name = "プライバシーポリシー"
-URL = "https://blog.code-del.com/プライバシーポリシー/"
+URL = "https://blog.code-del.com/privacy-policy/"
 weight = 3
 
 [[menu.footer]]
 name = "免責事項"
-URL = "https://blog.code-del.com/免責事項/"
+URL = "https://blog.code-del.com/disclaimer/"
 weight = 4
 
 # [[menu.external]]
