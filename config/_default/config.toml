@@ -132,29 +132,36 @@ weight = 2
 
 #################### default parameters ################################
 [params]
-logo = "color_transparent_small.png"
-home = "Home"
-favicon = "favicon.png"
-# Meta data
-description = "This is meta description"
-author = "aiueo"
-# Google Analitycs
-googleAnalitycsID = "G-FNQWYEDZRC"
-# Contact Information
-# mobile = "09024500725"
-# email = "y.hakomori@code-del.com"
-location = "Tokyo, Japan"
-# copyright
-copyright = "| copyright &copy; 2024 [Code Delivery](https://code-del.com) All Rights Reserved |"
+  logo = "color_transparent_small.png"
+  home = "Home"
+  favicon = "favicon.png"
+  # Meta data
+  description = "テックブログ - Code Delivery"
+  author = "aiueo"
+
+  # Contact Information
+  # mobile = "09024500725"
+  # email = "y.hakomori@code-del.com"
+  location = "Tokyo, Japan"
+  # copyright
+  copyright = "| copyright &copy; 2024 [Code Delivery](https://code-del.com) All Rights Reserved |"
+
+# analytics
+[params.analytics]
+  enable = true
+
+[params.analytics.google]
+  googleAnalitycsID = "G-FNQWYEDZRC"
+  gtmId = "GTM-K9F2WPM"
 
 # Preloader
 [params.preloader]
-enable = true
-preloader = "" # use .png , .svg or .gif format
+  enable = true
+  preloader = "" # use .png , .svg or .gif format
 
 # search
 [params.search]
-enable = true
+  enable = true
 
 # Table of Contents
 [markup]

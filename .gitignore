@@ -10,3 +10,4 @@ content/*
 !content/.gitkeep
 static/imgs/*
 !static/imgs/.gitkeep
+.DS_Store
