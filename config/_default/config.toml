@@ -4,10 +4,12 @@ languageCode = "ja"
 title = "Code Delivery"
 theme = "liva-hugo"
 summaryLength = "10"
-paginate = 6
 disqusShortname = ""
 hasCJKLanguage = true
 isCJKLanguage = true
+
+[pagination]
+  pagerSize = 10
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
