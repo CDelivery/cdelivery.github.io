@@ -94,12 +94,12 @@ weight = 2
 
 [[menu.footer]]
 name = "プライバシーポリシー"
-URL = "https://blog.code-del.com/プライバシーポリシー/"
+URL = "https://blog.code-del.com/privacy-policy/"
 weight = 3
 
 [[menu.footer]]
 name = "免責事項"
-URL = "https://blog.code-del.com/免責事項/"
+URL = "https://blog.code-del.com/disclaimer/"
 weight = 4
 
 # [[menu.external]]
@@ -116,18 +116,20 @@ weight = 2
 #################### article ################################
 # 関連記事
 [related]
-  threshold = 0.1
-  toLower = true
   includeNewer = true
-  [[related.indices]]
-    name = "tags"
-    weight = 200
+  threshold = 60  # 閾値を下げる
+  toLower = false
+
   [[related.indices]]
     name = "categories"
     weight = 100
+
+  [[related.indices]]
+    name = "tags"
+    weight = 80
+
   [[related.indices]]
     name = "date"
-    pattern = "2006"
     weight = 10
 
 #################### default parameters ################################

@@ -304,6 +304,15 @@ export async function savePage(
     notion: Client,
     mount: DatabaseMount | PageMount
 ) {
+    // Notionのプロパティから下書き状態を確認
+    const isDraft = await checkIfDraft(page, notion);
+    
+    // 下書きの場合はスキップ
+    if (isDraft) {
+        console.info(`[Info] Skipping draft page: ${getPageTitle(page)}`);
+        return;
+    }
+    
     const postpath = path.join(
         "content",
         mount.target_folder,
@@ -329,4 +338,52 @@ export async function savePage(
         false
     );
     fs.writeFileSync(`content/${mount.target_folder}/${fileName}`, pageString);
+}
+
+// 下書きかどうかを判断する関数を追加
+async function checkIfDraft(page: PageObjectResponse, notion: Client): Promise<boolean> {
+    // Notionのプロパティを確認
+    for (const property in page.properties) {
+        const prop = page.properties[property];
+        
+        // 「Status」または「状態」プロパティを探す
+        if (
+            (property.toLowerCase() === 'status' || 
+             property.toLowerCase() === '状態' || 
+             property.toLowerCase() === 'draft') && 
+            prop.type === 'status'
+        ) {
+            const id = prop.id;
+            const response = await notion.pages.properties.retrieve({
+                page_id: page.id,
+                property_id: id,
+            });
+            
+            if (response.object === "property_item" && response.type === "status") {
+                // 「下書き」「Draft」などの値をチェック
+                const status = response.status?.name?.toLowerCase();
+                return status === 'draft' || status === '下書き' || status === 'ドラフト';
+            }
+        }
+        
+        // チェックボックスタイプの「Draft」プロパティをチェック
+        if (
+            (property.toLowerCase() === 'draft' || 
+             property.toLowerCase() === '下書き') && 
+            prop.type === 'checkbox'
+        ) {
+            const id = prop.id;
+            const response = await notion.pages.properties.retrieve({
+                page_id: page.id,
+                property_id: id,
+            });
+            
+            if (response.object === "property_item" && response.type === "checkbox") {
+                return response.checkbox === true;
+            }
+        }
+    }
+    
+    // デフォルトでは下書きではない
+    return false;
 }
